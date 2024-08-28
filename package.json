@@ -8,6 +8,7 @@
     "@wdio/spec-reporter": "^9.0.7"
   },
   "scripts": {
-    "wdio": "wdio run tests/conf/wdio.conf.js"
+    "test:chrome": ".\\node_modules\\.bin\\wdio .\\tests\\conf\\wdio.conf.js",
+    "test:chrome-mac": "wdio run tests/conf/wdio.conf.js"
   }
 }
