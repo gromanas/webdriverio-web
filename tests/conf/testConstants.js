@@ -24,3 +24,9 @@ export const LOGIN_USERS = {
         password: 'secret_sauce',
     },
 };
+
+export const LOGIN_ERROR_MSG = {
+    ERROR_MSG_LOCKED: 'Epic sadface: Sorry, this user has been locked out.',
+    ERROR_MSG_NO_USERNAME: 'Epic sadface: Username is required',
+    ERROR_MSG_NO_PASSWORD: 'Epic sadface: Password is required'
+}
