@@ -1,14 +1,26 @@
 {
   "name": "webdriverio-web",
-  "type": "module",
+  "scripts": {
+    "test:chrome": ".\\node_modules\\.bin\\wdio .\\tests\\conf\\wdio.local.chrome.conf.js",
+    "test:firefox": ".\\node_modules\\.bin\\wdio .\\tests\\conf\\wdio.local.firefox.conf.js",
+    "test:msedge": ".\\node_modules\\.bin\\wdio .\\tests\\conf\\wdio.local.msedge.conf.js",
+    "test:multiremote": ".\\node_modules\\.bin\\wdio .\\tests\\conf\\wdio.local.multiremote.conf.js",
+    "test:chrome-mac": "wdio tests/conf/wdio.local.chrome.conf.js",
+    "test:msedge-mac": "wdio tests/conf/wdio.local.msedge.conf.js",
+    "test:firefox-mac": "wdio tests/conf/wdio.local.firefox.conf.js",
+    "test:safari-mac": "wdio tests/conf/wdio.local.safari.conf.js",
+    "test:multiremote-mac": "wdio tests/conf/wdio.local.multiremote.conf.js"
+  },
   "devDependencies": {
+    "@babel/cli": "^7.25.7",
+    "@babel/core": "^7.25.7",
+    "@babel/plugin-transform-class-properties": "^7.25.7",
+    "@babel/plugin-transform-modules-commonjs": "^7.25.7",
+    "@babel/preset-env": "^7.25.7",
+    "@babel/register": "^7.25.7",
     "@wdio/cli": "^9.0.7",
     "@wdio/local-runner": "^9.0.7",
     "@wdio/mocha-framework": "^9.0.6",
     "@wdio/spec-reporter": "^9.0.7"
-  },
-  "scripts": {
-    "test:chrome": ".\\node_modules\\.bin\\wdio .\\tests\\conf\\wdio.conf.js",
-    "test:chrome-mac": "wdio run tests/conf/wdio.conf.js"
   }
 }
