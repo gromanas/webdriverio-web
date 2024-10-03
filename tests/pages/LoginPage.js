@@ -1,21 +1,21 @@
 import { $ } from "@wdio/globals";
 
 class LoginPage {
-    getLoginPage() {
+    get loginPage() {
         return $('.login_logo');
     }
 
-    getUsername() {
+    get username() {
         return $('[data-test="username"]');
     }
 
-    getPassword() {
+    get password() {
         return $('#password');
     }
 
-    getLoginBtn() {
+    get loginBtn() {
         return $('#login-button');
     }
 }
 
-module.exports = LoginPage;
+export default new LoginPage();

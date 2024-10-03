@@ -1,13 +1,13 @@
 import { $ } from "@wdio/globals";
 
 class ProductsPage {
-    getProductsPage() {
+    get productsPage() {
         return $('#page_wrapper');
     }
 
-    getProductsContainer() {
+    get productsContainer() {
         return $('#inventory_container');
     }
 }
 
-module.exports = ProductsPage;
+export default new ProductsPage();
