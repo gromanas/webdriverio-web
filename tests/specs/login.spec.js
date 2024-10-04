@@ -1,6 +1,6 @@
 import { browser } from "@wdio/globals";
-import LoginPage from "../pages/LoginPage.mjs";
-import ProductsPage from "../pages/ProductsPage.mjs";
+import LoginPage from "../pages/LoginPage.js";
+import ProductsPage from "../pages/ProductsPage.js";
 
 describe('Login Form', () => {
     it('verify user that can be successfully login', async () => {
