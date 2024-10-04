@@ -1,4 +1,4 @@
-exports.config = {
+export const config = {
     //
     // ====================
     // Runner Configuration
@@ -21,7 +21,7 @@ exports.config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        "../../tests/specs/**.spec.js"
+        "../../tests/specs/**.spec.mjs"
     ],
     // Patterns to exclude.
     exclude: [
