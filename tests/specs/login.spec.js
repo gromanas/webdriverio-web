@@ -12,7 +12,7 @@ describe('Login Form', () => {
     it('verify user that can be successfully login', async () => {
         await LoginPage.open();
 
-        await LoginPage.login(LOGIN_USERS.STANDARD.username, LOGIN_USERS.STANDARD.password);
+        await LoginPage.login();
 
         await expect(await ProductsPage.productsPage).toBeDisplayed();
     });

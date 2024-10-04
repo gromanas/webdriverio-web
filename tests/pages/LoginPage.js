@@ -1,4 +1,5 @@
 import { $ } from "@wdio/globals";
+import {LOGIN_USERS} from "../conf/testConstants";
 
 class LoginPage {
     get loginPage() {
@@ -25,7 +26,7 @@ class LoginPage {
         await browser.url('/');
     };
 
-    async login(username, password) {
+    async login(username = LOGIN_USERS.STANDARD.username, password = LOGIN_USERS.STANDARD.password) {
         // const {username, password} = userCredentials;
         await this.username.setValue(username);
         await this.password.setValue(password);

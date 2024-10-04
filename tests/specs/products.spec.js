@@ -2,13 +2,13 @@ import LoginPage from '../pages/LoginPage.js';
 import ProductsPage from '../pages/ProductsPage.js';
 import ProductDetailsPage from '../pages/ProductDetailsPage.js';
 
-import {LOGIN_USERS, PRODUCTS} from '../conf/testConstants.js';
+import {PRODUCTS} from '../conf/testConstants.js';
 
 describe('Products items list', async () => {
 
     beforeEach( async ()=> {
         await LoginPage.open();
-        await LoginPage.login(LOGIN_USERS.STANDARD.username,LOGIN_USERS.STANDARD.password);
+        await LoginPage.login();
         await expect(await ProductsPage.productsPage).toBeDisplayed();
     });
 
@@ -23,6 +23,6 @@ describe('Products items list', async () => {
 
         await expect(await ProductDetailsPage.productDetailsPage).toBeDisplayed();
 
-        await expect(await ProductsPage.productItemName[0]).toHaveText(expect.stringContaining(PRODUCTS.ONESIE));
+        await expect(await ProductDetailsPage.productItemName[0]).toHaveText(expect.stringContaining(PRODUCTS.ONESIE));
     });
 })
