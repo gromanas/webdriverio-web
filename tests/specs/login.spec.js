@@ -1,5 +1,5 @@
-import LoginPage from "../pages/LoginPage.mjs";
-import ProductsPage from "../pages/ProductsPage.mjs";
+import LoginPage from "../pages/LoginPage.js";
+import ProductsPage from "../pages/ProductsPage.js";
 import {LOGIN_ERROR_MSG, LOGIN_USERS} from "../conf/testConstants.mjs";
 
 const testCases = [
