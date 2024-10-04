@@ -2,7 +2,7 @@
   "name": "webdriverio-web",
   "scripts": {
     "test:chrome": ".\\node_modules\\.bin\\wdio .\\tests\\conf\\wdio.local.chrome.conf.js",
-    "test:chrome-mac": "wdio tests/conf/wdio.local.chrome.conf.js",
+    "test:chrome-mac": "wdio tests/conf/wdio.local.chrome.conf.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.25.7",
