@@ -2,7 +2,7 @@ import LoginPage from '../pages/LoginPage.js';
 import ProductsPage from '../pages/ProductsPage.js';
 import ProductDetailsPage from '../pages/ProductDetailsPage.js';
 
-import {LOGIN_USERS} from '../conf/testConstants.mjs';
+import {LOGIN_USERS, PRODUCTS} from '../conf/testConstants.mjs';
 
 describe('Products items list', async () => {
 
@@ -23,6 +23,6 @@ describe('Products items list', async () => {
 
         await expect(await ProductDetailsPage.productDetailsPage).toBeDisplayed();
 
-        await expect(await ProductsPage.productItemName[0]).toHaveText(expect.stringContaining('Sauce Labs Onesie'));
+        await expect(await ProductsPage.productItemName[0]).toHaveText(expect.stringContaining(PRODUCTS.ONESIE));
     });
 })

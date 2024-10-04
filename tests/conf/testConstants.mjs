@@ -30,3 +30,7 @@ export const LOGIN_ERROR_MSG = {
     ERROR_MSG_NO_USERNAME: 'Epic sadface: Username is required',
     ERROR_MSG_NO_PASSWORD: 'Epic sadface: Password is required'
 }
+
+export const PRODUCTS = {
+    ONESIE: "Sauce Labs Onesie"
+}
