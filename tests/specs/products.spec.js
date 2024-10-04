@@ -2,7 +2,7 @@ import LoginPage from '../pages/LoginPage.js';
 import ProductsPage from '../pages/ProductsPage.js';
 import ProductDetailsPage from '../pages/ProductDetailsPage.js';
 
-import {LOGIN_USERS, PRODUCTS} from '../conf/testConstants.mjs';
+import {LOGIN_USERS, PRODUCTS} from '../conf/testConstants.js';
 
 describe('Products items list', async () => {
 
