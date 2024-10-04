@@ -1,6 +1,6 @@
 import LoginPage from "../pages/LoginPage.js";
 import ProductsPage from "../pages/ProductsPage.js";
-import {LOGIN_ERROR_MSG, LOGIN_USERS} from "../conf/testConstants.mjs";
+import {LOGIN_ERROR_MSG, LOGIN_USERS} from "../conf/testConstants.js";
 
 describe('Login Form', () => {
     it('verify user that can be successfully login', async () => {
