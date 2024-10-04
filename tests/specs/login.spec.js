@@ -1,6 +1,6 @@
-import LoginPage from "../pages/LoginPage.mjs";
-import ProductsPage from "../pages/ProductsPage.mjs";
-import {LOGIN_USERS} from "../conf/testConstants.mjs";
+import LoginPage from "../pages/LoginPage.js";
+import ProductsPage from "../pages/ProductsPage.js";
+import {LOGIN_USERS} from "../conf/testConstants.js";
 
 describe('Login Form', () => {
     it('verify user that can be successfully login', async () => {
