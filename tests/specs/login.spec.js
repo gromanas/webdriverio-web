@@ -19,11 +19,11 @@ describe('Login Form', () => {
 
     testCases.forEach(({username, password, msg}) => {
         it(`verify that user cannot login in different cases - ${msg}`, async () => {
-                await LoginPage.open();
+            await LoginPage.open();
 
-                await LoginPage.login(username,password);
+            await LoginPage.login(username,password);
 
-                await expect(await LoginPage.hintErrorMsg).toHaveText(msg);
+            await expect(await LoginPage.hintErrorMsg).toHaveText(msg);
         });
     });
 });
