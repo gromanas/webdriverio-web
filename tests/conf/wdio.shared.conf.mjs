@@ -1,4 +1,9 @@
-exports.config = {
+import { ReportAggregator } from "wdio-html-nice-reporter";
+import moment from "moment";
+import path from "path";
+let reportAggregator;
+
+export const config = {
     //
     // ====================
     // Runner Configuration
@@ -20,7 +25,7 @@ exports.config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        "../../tests/specs/**.spec.js"
+        "../../tests/specs/**.spec.mjs"
     ],
     // Patterns to exclude.
     exclude: [
@@ -108,10 +113,19 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    reporters: ['spec'],
+    reporters: [ "spec", [ "html-nice", {
+        outputDir: "./reports/html-reports/",
+        filename: "report.html",
+        reportTitle: "Test Report Title",
 
-
-
+        //to show the report in a browser when done
+        showInBrowser: false,
+        collapseTests: false,
+        //to turn on screenshots after every test
+        // useOnAfterCommandForScreenshot: true,
+    },
+    ],
+    ],
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
@@ -133,8 +147,22 @@ exports.config = {
      * @param {Object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    // onPrepare: function (config, capabilities) {
-    // },
+    onPrepare: function (config, capabilities) {
+        let browsers = '';
+        // eslint-disable-next-line no-plusplus
+        for (let i = 0; i < capabilities.length; i++) {
+            browsers += `${capabilities[i].browserName} `;
+        }
+
+        reportAggregator = new ReportAggregator({
+            outputDir: './reports/html-reports/',
+            filename: 'master-report.html',
+            reportTitle: 'WebdriverIO HAU Testing Course',
+            browserName: browsers,
+            showInBrowser: true,
+        });
+        reportAggregator.clean();
+    },
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
      * for that worker as well as modify runtime environments in an async fashion.
@@ -197,10 +225,19 @@ exports.config = {
     /**
      * Function to be executed after a test (in Mocha/Jasmine).
      */
-    // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-    // },
-
-
+    afterTest: async function (test, context, { error, result, duration, passed, retries }  ) {
+        // if test passed, ignore, else take and save screenshot.
+        if (error) {
+            const timestamp = moment().format('YYYYMMDD-HHmmss.SSS');
+            const filepath = path.join(
+                './reports/html-reports/screenshots/',
+                `${timestamp}.png`,
+            );
+            await browser.saveScreenshot(filepath);
+            await process.emit('test:screenshot', filepath);
+        }
+        await process.emit('test:log', `Browser: ${browser.capabilities.browserName}`);
+    },
     /**
      * Hook that gets executed after the suite has ended
      * @param {Object} suite suite details
@@ -241,8 +278,11 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {<Object>} results object containing test results
      */
-    // onComplete: function(exitCode, config, capabilities, results) {
-    // },
+    onComplete: function(exitCode, config, capabilities, results) {
+        (async () => {
+            await reportAggregator.createReport();
+        })();
+    },
     /**
     * Gets executed when a refresh happens.
     * @param {String} oldSessionId session ID of the old session
