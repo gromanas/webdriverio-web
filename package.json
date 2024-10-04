@@ -8,7 +8,7 @@
     "test:chrome-mac": "wdio tests/conf/wdio.local.chrome.conf.js",
     "test:msedge-mac": "wdio tests/conf/wdio.local.msedge.conf.js",
     "test:firefox-mac": "wdio tests/conf/wdio.local.firefox.conf.js",
-    "test:safari-mac": "wdio tests/conf/wdio.local.safari.conf.js",
+    "test:safari-mac": "wdio tests/conf/wdio.local.safari.conf.mjs",
     "test:multiremote-mac": "wdio tests/conf/wdio.local.multiremote.conf.js"
   },
   "devDependencies": {

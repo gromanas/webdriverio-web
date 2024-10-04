@@ -4,8 +4,8 @@ export const config = {
     ...wdioConfig,
     capabilities: [
         {
-            browserName: 'safari',
-            port: 4446
+            browserName: 'firefox',
+            port: 4445
         }
     ]
 };

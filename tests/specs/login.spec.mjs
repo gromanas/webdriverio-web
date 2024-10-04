@@ -1,6 +1,6 @@
-import LoginPage from "../pages/LoginPage.js";
-import ProductsPage from "../pages/ProductsPage.js";
-import {LOGIN_ERROR_MSG, LOGIN_USERS} from "../conf/testConstants.js";
+import LoginPage from "../pages/LoginPage.mjs";
+import ProductsPage from "../pages/ProductsPage.mjs";
+import {LOGIN_ERROR_MSG, LOGIN_USERS} from "../conf/testConstants.mjs";
 
 const testCases = [
     {username: LOGIN_USERS.LOCKED.username, password: LOGIN_USERS.LOCKED.password, msg: LOGIN_ERROR_MSG.ERROR_MSG_LOCKED},
