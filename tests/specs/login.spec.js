@@ -11,10 +11,11 @@ const testCases = [
 describe('Login Form', () => {
     it('verify user that can be successfully login', async () => {
         await LoginPage.open();
-
+        await expect(await browser.checkScreen('Login-Page')).toEqual(0);
         await LoginPage.login();
 
         await expect(await ProductsPage.productsPage).toBeDisplayed();
+        await expect( await browser.checkTabbablePage('Products-Page-tappable')).toEqual(0);
     });
 
     testCases.forEach(({username, password, msg}) => {
