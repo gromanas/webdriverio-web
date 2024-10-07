@@ -24,6 +24,10 @@ class ProductsPage {
     removeFromCart(item) {
         return $$('.btn_secondary.btn_inventory')[item];
     }
+
+    get backButton() {
+        return $('.inventory_details_back_button');
+    }
 }
 
 export default new ProductsPage();

@@ -31,6 +31,10 @@ export const config = {
     exclude: [
         // 'path/to/excluded/files'
     ],
+    suites: {
+        auth: ['./tests/specs/login.spec.js', './tests/specs/menu.spec.js'],
+        products: ['./tests/specs/products.spec.js'],
+    },
     //
     // ============
     // Capabilities
