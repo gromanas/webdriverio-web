@@ -19,7 +19,7 @@ class MenuComponent {
         return $('#logout_sidebar_link');
     }
 
-    get ResetBtn() {
+    get resetBtn() {
         return $('#reset_sidebar_link');
     }
 }

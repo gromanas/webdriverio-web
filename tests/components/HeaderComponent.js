@@ -1,12 +1,10 @@
 class HeaderComponent {
     get cart() {
-        return $('.shopping_cart_link');
+        return $('[data-test="shopping-cart-link"]');
     }
 
-    get cartAmount(){
-        browser.pause(500);
-
-        return this.cart.getText();
+    get cartBadge() {
+        return $('[data-test="shopping-cart-badge"]');
     }
 }
 

@@ -8,12 +8,11 @@ describe('Menu', async () => {
         await LoginPage.open();
         await LoginPage.login();
 
-        await HeaderComponent.cart.click();
         await MenuComponent.menu.click();
 
         // show that an animation can be flaky.
         // await browser.pause(500);
-        //correct way to wait
+        // correct way to wait
         // await expect(await MenuComponent.logoutBtn).toBeDisplayed();
         // await expect(await MenuComponent.logoutBtn).toBeDisplayedInViewport();
     });
@@ -35,6 +34,15 @@ describe('Menu', async () => {
     it('should be able to log out', async () => {
         await MenuComponent.logoutBtn.click();
         await expect(await LoginPage.loginPage).toBeDisplayed();
+    });
+
+    // TODO BUG
+    it('should be able to reset the app', async () => {
+        await ProductsPage.addToCart(0).click();
+        await expect(await HeaderComponent.cartBadge).toHaveText('1');
+        await MenuComponent.resetBtn.click();
+        await expect(await HeaderComponent.cartBadge).not.toBeDisplayedInViewport();
+        await expect(await ProductsPage.removeFromCart(0)).not.toBeDisplayedInViewport();
     });
 });
 
