@@ -56,6 +56,7 @@ jobs:
           retention-days: 5
 
       - name: Check videos folder
+        if: always()
         run: |
           cd videos
           ls -ll
