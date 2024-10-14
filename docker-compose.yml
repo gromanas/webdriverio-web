@@ -16,7 +16,7 @@ services:
  chrome_video_1:
     image: selenium/video:ffmpeg-7.0.2-20240830
     volumes:
-      - ./.tmp/videos:/videos
+      - ./videos:/videos
     depends_on:
       - chrome_1
     environment:
@@ -40,7 +40,7 @@ services:
  chrome_video_2:
     image: selenium/video:ffmpeg-7.0.2-20240830
     volumes:
-      - ./.tmp/videos:/videos
+      - ./videos:/videos
     depends_on:
       - chrome_2
     environment:

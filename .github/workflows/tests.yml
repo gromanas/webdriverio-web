@@ -24,12 +24,15 @@ jobs:
       - name: 🔧  Install dependencies
         run: npm i
 
+      - name: ⌛ Create folders
+        run: sh ./ci/create-video-directory.sh
+
       - name: 🏗️  Start Selenium Grid
         run: |
           npm run infra:up-mac
 
       - name: 🍺  Verify IWG is Running
-        run: sh ./wait-for-grid-to-run.sh
+        run: sh ./ci/wait-for-grid-to-run.sh
 
       - name: 🚀  Run Functional Tests
         run: |
@@ -41,6 +44,7 @@ jobs:
         with:
           name: "image-diffs"
           path: .tmp
+          include-hidden-files: true
           retention-days: 5
 
       - name: 🏔️  Upload Functional Test report
@@ -49,4 +53,12 @@ jobs:
         with:
           name: "func-tests-report"
           path: reports
+          retention-days: 5
+
+      - name: 🎥  Upload Videos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: "videos"
+          path: ./videos
           retention-days: 5
