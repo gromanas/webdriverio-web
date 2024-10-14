@@ -1,19 +1,23 @@
 {
   "name": "webdriverio-web",
   "scripts": {
+    "infra:up": "docker compose -f .\\docker-compose.yml up -d",
+    "infra:up-mac": "docker compose -f docker-compose.yml up -d",
     "test:chrome": ".\\node_modules\\.bin\\wdio .\\tests\\conf\\wdio.local.chrome.conf.js",
     "test:firefox": ".\\node_modules\\.bin\\wdio .\\tests\\conf\\wdio.local.firefox.conf.js",
     "test:msedge": ".\\node_modules\\.bin\\wdio .\\tests\\conf\\wdio.local.msedge.conf.js",
     "test:multiremote": ".\\node_modules\\.bin\\wdio .\\tests\\conf\\wdio.local.multiremote.conf.js",
     "test:chrome-mobile": ".\\node_modules\\.bin\\wdio \\tests\\conf\\wdio.mobile.web.conf.js",
     "test:sauce": ".\\node_modules\\.bin\\wdio .\\tests\\conf\\wdio.sauce.web.conf.mjs",
+    "test:grid": ".\\node_modules\\.bin\\wdio .\\tests\\conf\\wdio.grid.web.conf.mjs",
     "test:chrome-mac": "wdio tests/conf/wdio.local.chrome.conf.mjs",
     "test:msedge-mac": "wdio tests/conf/wdio.local.msedge.conf.mjs",
     "test:firefox-mac": "wdio tests/conf/wdio.local.firefox.conf.mjs",
     "test:safari-mac": "wdio tests/conf/wdio.local.safari.conf.mjs",
     "test:multiremote-mac": "wdio tests/conf/wdio.local.multiremote.conf.mjs",
     "test:chrome-mobile-mac": "wdio tests/conf/wdio.mobile.web.conf.mjs",
-    "test:sauce-mac": "wdio ./tests/conf/wdio.sauce.web.conf.mjs"
+    "test:sauce-mac": "wdio ./tests/conf/wdio.sauce.web.conf.mjs",
+    "test:grid-mac": "wdio ./tests/conf/wdio.grid.web.conf.mjs"
   },
   "devDependencies": {
     "@rpii/wdio-report-events": "^8.0.2",
