@@ -1,0 +1,46 @@
+name: Functional Tests
+
+on:
+  push
+
+jobs:
+  func-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛎️  Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: 🧶  NodeJS setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 🔧  Install dependencies
+        run: npm i
+
+      - name: 🏗️  Start Selenium Grid
+        run: |
+          npm run infra:up-mac
+
+      - name: 🚀  Run Functional Tests
+        run: |
+          npm run test:grid-mac
+
+      - name: 🌋  Upload Image Diffs
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: "image-diffs"
+          path: .tmp
+          retention-days: 5
+
+      - name: 🏔️  Upload Functional Test report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: "func-tests-report"
+          path: reports
+          retention-days: 5
