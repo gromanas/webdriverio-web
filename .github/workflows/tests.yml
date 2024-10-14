@@ -67,4 +67,5 @@ jobs:
         with:
           name: "videos"
           path: videos
+          include-hidden-files: true
           retention-days: 5

@@ -1,2 +1,3 @@
-mkdir ../videos
-chmod 777 ../videos
+mkdir ./videos
+chmod 777 ./videos
+cd ..
