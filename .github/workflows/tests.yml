@@ -55,6 +55,11 @@ jobs:
           path: reports
           retention-days: 5
 
+      - name: Check videos folder
+        run: |
+          cd videos
+          ls -ll
+
       - name: 🎥  Upload Videos
         if: always()
         uses: actions/upload-artifact@v4
