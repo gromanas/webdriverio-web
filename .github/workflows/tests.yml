@@ -25,6 +25,9 @@ jobs:
         run: |
           npm run infra:up-mac
 
+      - name: 🍺  Verify IWG is Running
+        run: sh ./wait-for-grid-to-run.sh
+
       - name: 🚀  Run Functional Tests
         run: |
           npm run test:grid-mac
